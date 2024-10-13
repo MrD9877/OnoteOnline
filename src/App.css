@@ -28,10 +28,19 @@
   color: #61dafb;
 }
 
+.loginLogo {
+  background: white;
+  height: 40px;
+  width: 40px;
+}
+
+/* // .classList.add("bg-red-50 border border-red-500 text-red-900 placeholder-red-700") */
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
