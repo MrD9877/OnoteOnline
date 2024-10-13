@@ -15,6 +15,7 @@ function Auth() {
     const [notesId, setNotesId] = useState()
     const [userInfo, setUserInfo] = useState();
 
+
     const navigate = useNavigate()
     const navigateTOlogin = (url, delay) => {
         setTimeout(() => {
