@@ -51,14 +51,14 @@ export default function LoginPage() {
             if (checkUser.statusText === "Unauthorized") {
                 popTost("Envalid Username or password", false)
                 setStyle(redInputStyle)
+                return
             }
-            const res = await checkUser.json();
-            if (res.valid) {
-                console.log('login')
+            console.log(checkUser.statusText)
+            if (checkUser.statusText === "OK") {
                 popTost('You are now loged in', true)
                 navigateTOlogin("/auth/home", 1000)
             }
-        } catch {
+        } catch (err) {
             popTost('Sorry server is down', false)
         }
     }

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import toast, { Toaster } from 'react-hot-toast';
 
 export default function Contact(props) {
@@ -46,9 +46,6 @@ export default function Contact(props) {
     sendQuery(data)
   }
 
-  useEffect(() => {
-    userEmail.current.value = props.userInfo ? props.userInfo.email : ""
-  }, [props.userInfo])
   return (
     <>
       <Toaster

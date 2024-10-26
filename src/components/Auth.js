@@ -8,13 +8,13 @@ import EditNotes from './EditNote.js';
 import NotesTable from './NotesTable.js';
 import Home from './Home.js';
 import { useNavigate } from 'react-router-dom';
+import ViewNotesPage from './ViewNotesPage.js';
 
 
 function Auth() {
-    const [userNotes, setUsernotes] = useState()
-    const [notesId, setNotesId] = useState()
-    const [userInfo, setUserInfo] = useState();
-
+    const [userNotes, setUsernotes] = useState(null)
+    const [content, setContent] = useState()
+    const [topic, setTopic] = useState()
 
     const navigate = useNavigate()
     const navigateTOlogin = (url, delay) => {
@@ -22,33 +22,32 @@ function Auth() {
             navigate(url)
         }, delay)
     }
-    const setInfo = (info) => {
-        setUserInfo(pre => ({ ...pre, ...info }))
-    }
-    const checkauth = async () => {
-        try {
-            const data = await fetch('http://localhost:3000/home/login/check', { credentials: 'include', })
-            const user = await data.json()
-            if (!user.valid) {
-                navigateTOlogin('/', 0)
-            }
-            if (user.valid) {
-                setInfo(user.user)
-            }
-        } catch {
-            navigateTOlogin("/serverdown")
-        }
-    }
+
     const deleteFech = async (index) => {
+        const deleteId = userNotes[index]._id
         try {
-            await fetch(`http://localhost:3000/usernotes?username=${userInfo.username}`, { method: "DELETE", body: JSON.stringify({ index: index }) })
+            await fetch(`http://localhost:3000/usernotes`, {
+                method: "DELETE", credentials: 'include',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ _id: deleteId })
+            })
         } catch {
             console.log("nonono")
         }
     }
 
     const viewNote = (index) => {
-        setNotesId(index)
+        setTopic(() => {
+            const topic = userNotes[index].topic
+            return topic
+        })
+        setContent(() => {
+            const content = userNotes[index].content
+            return content
+        })
     }
 
     const deleteNote = async (index) => {
@@ -57,16 +56,16 @@ function Auth() {
     }
 
 
-    useEffect(() => {
-        checkauth()
-    }, [])
-
-
     const fechUserNotes = async () => {
-        let data, notes
         try {
-            data = await fetch(`http://localhost:3000/usernotes?username=${userInfo.username}`);
-            notes = await data.json()
+            const data = await fetch(`http://localhost:3000/usernotes`, {
+                credentials: 'include',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            });
+            const notes = await data.json()
             setUsernotes(notes)
         } catch {
             console.log("fail to get notes from server")
@@ -74,15 +73,17 @@ function Auth() {
     }
     useEffect(() => {
         fechUserNotes()
-    }, [userInfo])
+    }, [])
+
     return (
         <>
             <Navbar />
             <Routes>
                 <Route path='home' element={<Home />} />
                 <Route path='mynotes' element={<NotesTable viewNote={viewNote} deleteNote={deleteNote} userNotes={userNotes} />} />
-                <Route path='editnotes' element={<EditNotes userInfo={userInfo} notesId={notesId} userNotes={userNotes} />} />
-                <Route path='contact' element={<Contact userInfo={userInfo} />} />
+                <Route path='viewnotes' element={<ViewNotesPage topic={topic} content={content} />} />
+                <Route path='editnotes' element={<EditNotes fechUserNotes={fechUserNotes} userNotes={userNotes} />} />
+                <Route path='contact' element={<Contact />} />
             </Routes>
             <Footer />
         </>
