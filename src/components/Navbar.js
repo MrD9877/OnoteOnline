@@ -11,7 +11,7 @@ export default function Navbar(props) {
                 </Link>
                 <div className=" basis-1/4 flex justify-around">
                     <div>
-                        <Link to="/home">
+                        <Link to="/auth/home">
                             <lord-icon
                                 src="https://cdn.lordicon.com/wmwqvixz.json"
                                 trigger="hover"
@@ -19,14 +19,14 @@ export default function Navbar(props) {
                             ></lord-icon>
                         </Link>
                     </div>
-                    <Link to="/mynotes" >
+                    <Link to="/auth/mynotes" >
                         <lord-icon
                             src="https://cdn.lordicon.com/xljvqlng.json"
                             trigger="hover"
                             style={{ width: "50px", height: "50px" }}
                         ></lord-icon>
                     </Link>
-                    <Link to="/contact">
+                    <Link to="/auth/contact">
                         <lord-icon
                             src="https://cdn.lordicon.com/srsgifqc.json"
                             trigger="hover"

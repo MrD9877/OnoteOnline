@@ -18,7 +18,7 @@ export default function Footer() {
                         <a href="/" className="hover:underline me-4 md:me-6">Licensing</a>
                     </li>
                     <li>
-                        <Link to="/contact" className="hover:underline">Contact</Link>
+                        <Link to="/auth/contact" className="hover:underline">Contact</Link>
                     </li>
                 </ul>
             </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import Footer from './Footer.js'
 import Navbar from './Navbar.js'
 import { useState, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, HashRouter } from 'react-router-dom';
 import Contact from './Contact.js';
 import EditNotes from './EditNote.js';
 import NotesTable from './NotesTable.js';
@@ -77,16 +77,18 @@ function Auth() {
 
     return (
         <>
-            <Navbar />
-            <Routes>
-                <Route path='home' element={<Home />} />
-                <Route path="*" element={<Home />} />
-                <Route path='mynotes' element={<NotesTable viewNote={viewNote} deleteNote={deleteNote} userNotes={userNotes} />} />
-                <Route path='viewnotes' element={<ViewNotesPage topic={topic} content={content} />} />
-                <Route path='editnotes' element={<EditNotes fechUserNotes={fechUserNotes} userNotes={userNotes} />} />
-                <Route path='contact' element={<Contact />} />
-            </Routes>
-            <Footer />
+            <HashRouter>
+                <Navbar />
+                <Routes>
+                    <Route path='home' element={<Home />} />
+                    <Route path="*" element={<Home />} />
+                    <Route path='mynotes' element={<NotesTable viewNote={viewNote} deleteNote={deleteNote} userNotes={userNotes} />} />
+                    <Route path='viewnotes' element={<ViewNotesPage topic={topic} content={content} />} />
+                    <Route path='editnotes' element={<EditNotes fechUserNotes={fechUserNotes} userNotes={userNotes} />} />
+                    <Route path='contact' element={<Contact />} />
+                </Routes>
+                <Footer />
+            </HashRouter>
         </>
     )
 }
