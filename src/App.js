@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import Auth from './components/Auth.js';
 import PageNotFound from './components/PageNotFound.js';
 import ServerDown from './components/ServerDown.js';
+import Home from './components/Home.js';
 
 
 
@@ -19,7 +20,7 @@ function App() {
         <Route path='/serverdown' element={<ServerDown />} />
         <Route path='/signin' element={<SigninPage />} />
         <Route path='/auth/*' element={<Auth />} />
-        <Route path="*" element={<PageNotFound />} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </>
   );
