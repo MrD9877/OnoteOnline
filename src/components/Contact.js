@@ -25,7 +25,7 @@ export default function Contact(props) {
   }
 
   const sendQuery = async (data) => {
-    await fetch('http://localhost:3000/contact/userQuery', { method: "POST", body: JSON.stringify(data) }).catch(
+    await fetch(`${process.env.API_KEY}/contact/userQuery`, { method: "POST", body: JSON.stringify(data) }).catch(
       console.log('err')
     )
     popTost("Send ✔", true)

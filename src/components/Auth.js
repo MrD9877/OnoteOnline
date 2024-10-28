@@ -58,7 +58,7 @@ function Auth() {
 
     const fechUserNotes = async () => {
         try {
-            const data = await fetch(`http://localhost:3000/usernotes`, {
+            const data = await fetch(`${process.env.API_KEY}/usernotes`, {
                 credentials: 'include',
                 headers: {
                     'Accept': 'application/json',
