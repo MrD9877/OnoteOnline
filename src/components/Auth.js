@@ -77,17 +77,15 @@ function Auth() {
 
     return (
         <>
-            <HashRouter>
-                <Navbar />
-                <Routes>
-                    <Route path='home' element={<Home />} />
-                    <Route path='mynotes' element={<NotesTable viewNote={viewNote} deleteNote={deleteNote} userNotes={userNotes} />} />
-                    <Route path='viewnotes' element={<ViewNotesPage topic={topic} content={content} />} />
-                    <Route path='editnotes' element={<EditNotes fechUserNotes={fechUserNotes} userNotes={userNotes} />} />
-                    <Route path='contact' element={<Contact />} />
-                </Routes>
-                <Footer />
-            </HashRouter>
+            <Navbar />
+            <Routes>
+                <Route path='home' element={<Home />} />
+                <Route path='mynotes' element={<NotesTable viewNote={viewNote} deleteNote={deleteNote} userNotes={userNotes} />} />
+                <Route path='viewnotes' element={<ViewNotesPage topic={topic} content={content} />} />
+                <Route path='editnotes' element={<EditNotes fechUserNotes={fechUserNotes} userNotes={userNotes} />} />
+                <Route path='contact' element={<Contact />} />
+            </Routes>
+            <Footer />
         </>
     )
 }
