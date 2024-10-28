@@ -52,7 +52,7 @@ export default function NotesTable({ userNotes, viewNote, deleteNote }) {
                                         </p>
                                     </div>
                                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                                        <Link to="/editnotes">
+                                        <Link to="/auth/editnotes">
                                             <button className=" focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-8 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">
                                                 +
                                             </button>
