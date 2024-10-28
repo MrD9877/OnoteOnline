@@ -21,6 +21,7 @@ function App() {
           <Route path='/serverdown' element={<ServerDown />} />
           <Route path='/signin' element={<SigninPage />} />
           <Route path='/auth/*' element={<Auth />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </HashRouter>
     </>
