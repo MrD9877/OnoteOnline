@@ -16,11 +16,10 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<LoginPage />} />
+        <Route path='/login' element={<LoginPage />} />
         <Route path='/serverdown' element={<ServerDown />} />
         <Route path='/signin' element={<SigninPage />} />
-        <Route path='/auth/*' element={<Auth />} />
-        <Route path="*" element={<Home />} />
+        <Route path='/*' element={<Auth />} />
       </Routes>
     </>
   );

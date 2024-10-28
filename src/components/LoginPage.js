@@ -56,7 +56,7 @@ export default function LoginPage() {
             console.log(checkUser.statusText)
             if (checkUser.statusText === "OK") {
                 popTost('You are now loged in', true)
-                navigateTOlogin("/auth/home", 1000)
+                navigateTOlogin("/home", 1000)
             }
         } catch (err) {
             popTost('Sorry server is down', false)

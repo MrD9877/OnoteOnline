@@ -6,12 +6,12 @@ export default function Navbar(props) {
     return (
         <div className="bg-fuchsia-300" style={{ height: "10vh", background: "#EE82EE" }}>
             <nav className="flex justify-between items-center px-3 py-2">
-                <Link className="font-bold text-xl" to="/">
+                <Link className="font-bold text-xl" to="/login">
                     <span className='text-green-600'>&lt;</span><span>Onot</span><span className='text-green-600'>es/&gt;</span>
                 </Link>
                 <div className=" basis-1/4 flex justify-around">
                     <div>
-                        <Link to="/auth/home">
+                        <Link to="/home">
                             <lord-icon
                                 src="https://cdn.lordicon.com/wmwqvixz.json"
                                 trigger="hover"
@@ -19,14 +19,14 @@ export default function Navbar(props) {
                             ></lord-icon>
                         </Link>
                     </div>
-                    <Link to="/auth/mynotes" >
+                    <Link to="/mynotes" >
                         <lord-icon
                             src="https://cdn.lordicon.com/xljvqlng.json"
                             trigger="hover"
                             style={{ width: "50px", height: "50px" }}
                         ></lord-icon>
                     </Link>
-                    <Link to="/auth/contact">
+                    <Link to="/contact">
                         <lord-icon
                             src="https://cdn.lordicon.com/srsgifqc.json"
                             trigger="hover"

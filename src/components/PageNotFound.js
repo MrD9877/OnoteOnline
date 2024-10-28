@@ -6,7 +6,7 @@ const PageNotFound = () => {
     return (
         <div>
             wrong turn go :
-            <Link to='/auth/home'>home</Link>
+            <Link to='/home'>home</Link>
         </div>
     )
 }
